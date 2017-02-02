@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./customer information.css">
+	</head>
+	<body>
+	<h1>Find out information about previous customers</h1>
+	<table border="1">
+			<tr>
+				<th>
+					<a href="./index.html">Welcome page</a>
+				</th>
+				<th>
+					<a href="./Form.html">Hire a car</a>
+				</th>
+				<th>
+					<a href="./customer information.html">Previous Hires</a>
+				</th>
+			</tr>
+		</table>
+		<p>Type in a previous customers name or ID or both to find out what they hired last.</p>
+		
+		<form action="customer details.php" method="post">
+			Name:<br>
+				<input id="nameInput" type="text" name="Name"><br>
+			Surname:<br>
+				<input  id="surnameInput" type="text" name="Surname"><br>
+				ID:<br>
+				<input id="idInput" type="text" name="ID"><br>
+				<input type="submit" value="Submit">
+				<input type="reset" value="Reset">
+		</form>
+		<img src=".\images\question-mark.jpg"></img>
+	</body>
+
+</html>

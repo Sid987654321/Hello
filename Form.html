@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./Form.css">
+		<script>
+			function validateForm(){
+				console.log(document.getElementById("numberofdaysInput").value);
+				var datefrom = document.getElementById("datefromInput").value;
+				var dateformat = /^\d{4}-((0\d)|(1[012]))-(([012]\d)|3[01])$/;
+				
+				var firstname = document.getElementById("nameInput").value;
+				var surname = document.getElementById("surnameInput").value;
+				var numberofdays = document.getElementById("numberofdaysInput").value;
+				var n = firstname.length;
+				var o = surname.length;
+				
+				if(n>50)
+				{
+					alert("First name must be less than 50 characters");
+					return false;
+				}
+				if(o>50)
+				{
+					alert("Surname must be less than 50 chracters");
+					return false;
+				}
+				
+				if (firstname == "")
+				{
+					alert("Must use letters only");
+					return false;
+				}
+				if (surname == "")
+				{
+					alert("Must use letters only");
+					return false;
+				}
+				if (datefrom == "")
+				{
+					alert("Must contain a date with the order of yyyy-mm-dd");
+					return false;
+				}
+				if (!datefrom.match(dateformat))
+				{
+					alert("Must contain a date with the order of yyyy-mm-dd");
+					return false;
+				}
+				if (isNaN(numberofdays))
+				{
+					alert("Must contain numbers only");
+					return false;
+				}
+				if (parseInt(numberofdays) < 0)
+				{
+					alert("Must have numbers above 0");
+					return false;
+				}
+				if(numberofdays == "")
+				{
+					alert("Must have a number entered")
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Fill in the details below to hire a car!</h1>
+			<p>Once you have picked a car you want to hire from the homepage fill in the details and chose the car you want to hire and how many days you want to hire it for.</p>
+		<table border="1">
+			<tr>
+				<th>
+					<a href="./index.html">Welcome page</a>
+				</th>
+				<th>
+					<a href="./Form.html">Hire a car</a>
+				</th>
+				<th>
+					<a href="./customer information.html">Previous Hires</a>
+				</th>
+			</tr>
+		</table>
+		<form action="map.php" onsubmit="return validateForm()" method="post">
+			Name:<br>
+				<input id="nameInput" type="text" name="Name"><br>
+			Surname:<br>
+				<input  id="surnameInput" type="text" name="Surname"><br>
+			Date from:<br>
+				<input id="datefromInput" type="text" name="Datefrom"><br>
+			Number of days:<br>
+				<input id="numberofdaysInput" type="text" name="Numberofdays"><br>
+			Car you want to hire:<br>
+					<select name="carSelect">
+						<option value="Nissan GT-R">Nissan GT-R</option>
+						<option value="Subaru WRX">Subaru WRX</option>
+						<option value="Mitsubishi Outlander">Mitsubishi Outlander</option>
+						<option value="Audi A4">Audi A4</option>
+						<option value="Volkswagen Golf">Volkswagen Golf</option>
+						<option value="Mercedes A class">Mercedes A class</option>
+					</select>
+					<br>
+					<input type="submit" value="Submit">
+					<input type="reset" value="Reset">
+		</form>
+		<br>
+		<img src="images/ferrari.jpg" onmouseover="this.src='images/car gif.gif'" onmouseout="this.src='images/ferrari.jpg'"/img>
+		<br>
+		<p>Made by Sid</p>
+	</body>
+</html>

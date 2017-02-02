@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./index.css">
+	</head>
+	<body>
+	<h1>Information about our previous customers</h1>
+	<table border="1">
+			<tr>
+				<th>
+					<a href="./index.html">Welcome page</a>
+				</th>
+				<th>
+					<a href="./Form.html">Hire a car</a>
+				</th>
+				<th>
+					<a href="./customer information.html">Previous Hires</a>
+				</th>
+			</tr>
+		</table>
+		<p>Here is all the information about the previous customer you searched up.</p>
+
+		<table border="1">
+			<tr>
+				<th>
+					<p>ID</p>
+				</th>
+				<th>
+					
+				</th>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<th>
+					<p>Name</p>
+				</th>
+				<th>
+					
+				</th>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<th>
+					<p>Surname</p>
+				</th>
+				<th>
+					
+				</th>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<th>
+					<p>Date from</p>
+				</th>
+				<th>
+					
+				</th>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<th>
+					<p>Number of days</p>
+				</th>
+				<th>
+					
+				</th>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<th>
+					<p>Car they hired</p>
+				</th>
+				<th>
+					
+				</th>
+			</tr>
+		</table>
+		
+		
+		<?php
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "CarHire";
+			$firstName = $_POST["Name"];
+			$surName = $_POST["Surname"];
+			$id = $_POST["ID"];
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			} 
+			echo "Connected successfully";
+			$sql = "Select *FROM `clients` Where `First name` LIKE '%$firstName%' AND `Surname` LIKE '%$surName%'";
+			
+			
+
+			if ($result = mysqli_query($conn, $sql)) {
+				echo "New record created successfully";
+			} else {
+				echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			}
+			mysqli_close($conn);
+		?>
+		
+	</body>
+</html>
